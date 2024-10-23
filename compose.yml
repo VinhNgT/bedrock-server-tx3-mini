@@ -27,6 +27,8 @@ services:
       LEVEL_NAME: 'TX3-mini SMP'
       LEVEL_SEED: 818449366440319956
 
+      SERVER_AUTHORITATIVE_MOVEMENT: client-auth
+
     restart: unless-stopped
 
   minecraft-bedrock-backup:
