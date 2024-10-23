@@ -1,0 +1,16 @@
+containers:
+  bedrock:
+    - name: bedrock-server
+      ssh: bedrock-server:2222
+      passwordFile: /bedrock-data/.remote-console.yaml
+      worlds:
+        - '/bedrock-data/worlds/TX3-mini SMP'
+
+schedule:
+  onLastLogout: true
+  minInterval: 3h
+
+trim:
+  trimDays: 2
+  keepDays: 14
+  minKeep: 2

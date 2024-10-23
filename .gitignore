@@ -1,0 +1,5 @@
+/backups/*
+/data/*
+
+!.placeholder
+!/backups/config.yml

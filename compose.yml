@@ -1,0 +1,43 @@
+services:
+  bedrock-server:
+    image: itzg/minecraft-bedrock-server:master
+    container_name: bedrock-server
+
+    ports:
+      - 19132:19132/udp
+
+    expose:
+      # This is a reminder that this port is exposed to other containers in this compose file.
+      - 2222
+
+    volumes:
+      - ./data:/data
+
+    environment:
+      ENABLE_SSH: true
+
+      EULA: true
+      VERSION: 1.21.31.04
+
+      SERVER_NAME: 'TX3-mini SMP'
+      GAMEMODE: survival
+      DIFFICULTY: hard
+
+      MAX_THREADS: 4
+      LEVEL_NAME: 'TX3-mini SMP'
+      LEVEL_SEED: 818449366440319956
+
+    restart: unless-stopped
+
+  minecraft-bedrock-backup:
+    image: kaiede/minecraft-bedrock-backup:latest
+    depends_on:
+      bedrock-server:
+        condition: service_healthy
+
+    environment:
+      TZ: Asia/Ho_Chi_Minh
+
+    volumes:
+      - ./backups:/data
+      - ./data:/bedrock-data
