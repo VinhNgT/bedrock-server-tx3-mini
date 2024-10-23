@@ -41,3 +41,5 @@ services:
     volumes:
       - ./backups:/data
       - ./data:/bedrock-data
+
+    restart: unless-stopped
