@@ -8,7 +8,7 @@ containers:
 
 schedule:
   onLastLogout: true
-  minInterval: 3h
+  minInterval: 15m
 
 trim:
   trimDays: 2
